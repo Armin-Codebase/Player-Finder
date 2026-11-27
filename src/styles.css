@@ -1,0 +1,82 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #ededed;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button, input, select { font: inherit; }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid #555; outline-offset: 2px; }
+
+.draft {
+  width: min(760px, calc(100% - 32px));
+  margin: 28px auto;
+}
+
+.draft-header {
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid #c9c9c9;
+}
+
+.draft-header h1 { margin: 0; font-size: 24px; font-weight: 600; }
+.draft-header p { margin: 6px 0 0; color: #777; font-size: 13px; }
+
+.lookup {
+  margin-top: 16px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #c9c9c9;
+}
+
+.lookup h2 { margin: 0 0 6px; font-size: 19px; font-weight: 600; }
+.intro { margin: 0 0 18px; color: #666; font-size: 14px; }
+
+form { display: grid; gap: 8px; }
+form label { margin-top: 4px; font-size: 13px; }
+form input, form select {
+  width: 100%;
+  min-height: 38px;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  background: white;
+}
+
+form button {
+  justify-self: start;
+  min-height: 36px;
+  margin-top: 5px;
+  padding: 7px 18px;
+  border: 1px solid #888;
+  border-radius: 2px;
+  background: #e5e5e5;
+  color: #222;
+  cursor: pointer;
+}
+
+form button:disabled { color: #777; cursor: default; }
+.message { margin: 14px 0 0; font-size: 13px; }
+.error { color: #9b2424; }
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 12px;
+  border: 1px solid #bbb;
+  background: #f7f7f7;
+  overflow-wrap: anywhere;
+}
+
+.result img { width: 64px; height: 64px; object-fit: cover; }
+.result p { margin: 3px 0; color: #666; font-size: 13px; }
+.result .result-platform { text-transform: capitalize; }
+.result h3 { margin: 3px 0; font-size: 16px; }
+
+footer { padding: 14px 2px; color: #666; font-size: 12px; }
+footer a { color: #444; }

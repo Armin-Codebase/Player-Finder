@@ -1,0 +1,44 @@
+<main class="draft">
+  <header class="draft-header">
+    <h1>Player Finder</h1>
+    <p>Early design draft</p>
+  </header>
+
+  <section class="lookup">
+    <h2>Look up a player</h2>
+    <p class="intro">Search for a player on one of the supported platforms.</p>
+
+    <form (ngSubmit)="search()">
+      <label for="player-name">Username or ID</label>
+      <input id="player-name" name="query" [(ngModel)]="query" placeholder="Enter a username" autocomplete="off" />
+
+      <label for="platform">Platform</label>
+      <select id="platform" name="platform" [(ngModel)]="platform">
+        @for (item of platforms; track item.id) {
+          <option [value]="item.id">{{ item.name }}</option>
+        }
+      </select>
+
+      <button type="submit" [disabled]="loading() || !query.trim()">{{ loading() ? 'Searching…' : 'Search' }}</button>
+    </form>
+
+    @if (error()) {
+      <p class="message error" role="alert">{{ error() }}</p>
+    }
+
+    @if (player(); as result) {
+      <section class="result" aria-live="polite">
+        @if (result.avatar) {
+          <img [src]="result.avatar" [alt]="result.username + ' avatar'" width="64" height="64" />
+        }
+        <div>
+          <p class="result-platform">{{ result.platform }}</p>
+          <h3>{{ result.username }}</h3>
+          <p>{{ result.id || 'Player found' }}</p>
+        </div>
+      </section>
+    }
+  </section>
+
+  <footer>Player information provided by <a href="https://playerdb.co/" target="_blank" rel="noopener noreferrer">PlayerDB</a></footer>
+</main>
